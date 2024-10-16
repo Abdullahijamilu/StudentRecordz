@@ -1,0 +1,45 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Student Details";
+
+    if (TempData["success"] != null)
+    {
+        <script>
+            Swal.fire({
+                text: "@TempData["success"]",
+                icon: "success"
+            });
+        </script>
+    }
+}
+
+<div>
+    <h2>Student Details</h2>
+    <p>@Model.Id</p>
+    <p>@Model.Name</p>
+    <p>@Model.Address</p>
+    <p>@Model.Email</p>
+
+    <h3>Results</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Score</th>
+                <th scope="col">Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.Results)
+            {
+                <tr>
+                    <td>@result.Subject</td>
+                    <td>@result.Score</td>
+                    <td>@result.Grade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>Total Score: @Model.Results.Sum(r => r.Score)</p>
+</div>

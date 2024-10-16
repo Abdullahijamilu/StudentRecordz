@@ -1,0 +1,41 @@
+﻿@model List<Student>;
+@{
+
+}
+
+
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">StudentId</th>
+				<th scope="col">Name</th>
+				<th scope="col">Address</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		@if (Model != null)
+		{
+			@foreach (var data in Model)
+			{
+				<tr>
+					<td>@data.Id</td>
+					<td>@data.Name</td>
+					<td>@data.Address</td>
+					<td>@data.Email</td>
+
+
+					<td>
+						<div class="flex justify-content-around">
+							<a asp-controller="Home" asp-action="Details" asp-route-id="@data.Id" class="btn btn-primary">Details</a>
+							<a asp-controller="Home" asp-action="GetUpdate" asp-route-id="@data.Id" class="btn btn-warning">Update</a>
+							<a asp-controller="Home" asp-action="Delete" asp-route-id="@data.Id" class="btn btn-danger">Delete</a>
+						</div>
+					</td>
+				</tr>
+			}
+		}
+
+	</table>
+
+</div>

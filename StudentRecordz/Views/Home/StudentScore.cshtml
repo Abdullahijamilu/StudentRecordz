@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>Student Score</h3>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Score</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model)
+            {
+                <tr>
+                    <td>@data.Id</td>
+                    <td>@data.Name</td>
+                    <td>@data.Address</td>
+                    <td>@data.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
